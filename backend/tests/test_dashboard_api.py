@@ -106,3 +106,15 @@ async def test_dashboard_lists_high_risk_members_with_overdue_open_gaps() -> Non
     attention = response.json()["attention_needed"]
     assert any(item["member_id"] == member.id and item["member_key"] == "MEM-DEMO-003" for item in attention)
     assert all(item["overdue_gap_count"] >= 1 for item in attention)
+
+
+@pytest.mark.asyncio
+async def test_dashboard_rejects_malformed_authorization_without_server_error() -> None:
+    """A malformed bearer token fails authentication rather than leaking dashboard data."""
+
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.get("/api/v1/dashboard", headers={"Authorization": "Bearer not.a.jwt"})
+
+    assert response.status_code == 401
+    assert response.json() == {"detail": "Invalid access token"}

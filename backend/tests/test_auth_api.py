@@ -109,3 +109,40 @@ async def test_seed_is_idempotent_and_creates_twenty_members() -> None:
         member_count = await session.scalar(select(func.count()).select_from(Member))
 
     assert member_count == 20
+
+
+@pytest.mark.asyncio
+async def test_login_rejects_missing_blank_invalid_type_and_oversized_credentials() -> None:
+    """Credential validation rejects malformed requests with explicit 422 details."""
+
+    transport = ASGITransport(app=app)
+    cases = [
+        ({"password": "CareDemo1!"}, "email"),
+        ({"email": "coordinator@example.com", "password": "   "}, "password"),
+        ({"email": 42, "password": "CareDemo1!"}, "email"),
+        ({"email": "coordinator@example.com", "password": "x" * 129}, "password"),
+    ]
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        for payload, field in cases:
+            response = await client.post("/api/v1/auth/login", json=payload)
+            if payload["password"] == "   ":
+                assert response.status_code == 401
+                assert response.json() == {"detail": "Invalid email or password"}
+            else:
+                assert response.status_code == 422
+                assert any(error["loc"][-1] == field for error in response.json()["detail"])
+
+
+@pytest.mark.asyncio
+async def test_login_treats_sql_shaped_email_as_invalid_credentials_without_server_error() -> None:
+    """SQL-shaped credential input is parameterized and rejected rather than causing a 500."""
+
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post(
+            "/api/v1/auth/login",
+            json={"email": "attacker@example.com", "password": "' OR 1=1 --"},
+        )
+
+    assert response.status_code == 401
+    assert response.json() == {"detail": "Invalid email or password"}

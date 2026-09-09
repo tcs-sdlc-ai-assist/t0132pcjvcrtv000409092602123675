@@ -10,18 +10,50 @@ import PanelPage from './pages/PanelPage';
 
 function ProtectedRoute({ children }: { children: React.JSX.Element }): React.JSX.Element {
   const { session } = useAuth();
-  return session ? children : <Navigate to="/login" replace />;
+
+  return session ? children : <Navigate replace to="/login" />;
 }
 
 function AppRoutes(): React.JSX.Element {
   const { session } = useAuth();
+
   return (
     <Routes>
-      <Route path="/login" element={session ? <Navigate to="/dashboard" replace /> : <LoginPage />} />
-      <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-      <Route path="/panel" element={<ProtectedRoute><AppShell><PanelPage /></AppShell></ProtectedRoute>} />
-      <Route path="/members/:memberId" element={<ProtectedRoute><AppShell><MemberPage /></AppShell></ProtectedRoute>} />
-      <Route path="*" element={<Navigate to={session ? '/dashboard' : '/login'} replace />} />
+      <Route
+        path="/login"
+        element={session ? <Navigate replace to="/dashboard" /> : <LoginPage />}
+      />
+      <Route
+        path="/dashboard"
+        element={(
+          <ProtectedRoute>
+            <AppShell>
+              <DashboardPage />
+            </AppShell>
+          </ProtectedRoute>
+        )}
+      />
+      <Route
+        path="/panel"
+        element={(
+          <ProtectedRoute>
+            <AppShell>
+              <PanelPage />
+            </AppShell>
+          </ProtectedRoute>
+        )}
+      />
+      <Route
+        path="/members/:memberId"
+        element={(
+          <ProtectedRoute>
+            <AppShell>
+              <MemberPage />
+            </AppShell>
+          </ProtectedRoute>
+        )}
+      />
+      <Route path="*" element={<Navigate replace to={session ? '/dashboard' : '/login'} />} />
     </Routes>
   );
 }

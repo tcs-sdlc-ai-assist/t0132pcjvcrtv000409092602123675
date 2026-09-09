@@ -57,7 +57,9 @@ export function AppShell({ children }: AppShellProps): React.JSX.Element {
           </button>
         </div>
       </header>
-      <main className="app-content">{children}</main>
+      <main className="app-content">
+        {children}
+      </main>
     </div>
   );
 }

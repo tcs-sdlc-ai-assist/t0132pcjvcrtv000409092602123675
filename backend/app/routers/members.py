@@ -35,7 +35,7 @@ async def get_members(
     risk_level: Annotated[str | None, Query(max_length=24)] = None,
     plan: Annotated[str | None, Query(max_length=120)] = None,
     coordinator_id: int | None = None,
-    sort_by: Literal["last_name", "risk_level", "plan", "date_of_birth"] = "last_name",
+    sort_by: Literal["last_name", "risk_level", "plan", "date_of_birth", "pcp", "last_outreach"] = "last_name",
     sort_order: Literal["asc", "desc"] = "asc",
     limit: Annotated[int, Query(ge=1, le=100)] = 20,
     offset: Annotated[int, Query(ge=0)] = 0,

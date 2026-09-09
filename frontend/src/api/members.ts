@@ -1,4 +1,4 @@
-import type { CareGap, CarePlanGoal, MemberDetail, MemberPanel, Outreach } from '../types';
+import type { CareGap, CarePlanGoal, MemberDetail, MemberPanel, Outreach, OutreachCreatePayload } from '../types';
 
 /** Build a same-origin authenticated request and surface API errors. */
 async function memberRequest<T>(path: string, token: string, init?: RequestInit): Promise<T> {
@@ -36,10 +36,18 @@ export function closeGap(token: string, memberId: number, gapId: number, reason:
 }
 
 /** Record an outreach event for a member. */
-export function createOutreach(token: string, memberId: number, payload: { channel: string; outcome: string; occurred_at: string; notes: string }): Promise<Outreach> {
+export function createOutreach(token: string, memberId: number, payload: OutreachCreatePayload): Promise<Outreach> {
   return memberRequest<Outreach>(`/api/v1/members/${memberId}/outreach`, token, {
     method: 'POST',
     body: JSON.stringify(payload),
+  });
+}
+
+/** Assign or unassign a member when the signed-in user is a supervisor. */
+export function updateMemberAssignment(token: string, memberId: number, coordinatorId: number | null): Promise<MemberDetail> {
+  return memberRequest<MemberDetail>(`/api/v1/members/${memberId}/assignment`, token, {
+    method: 'PATCH',
+    body: JSON.stringify({ coordinator_id: coordinatorId }),
   });
 }
 

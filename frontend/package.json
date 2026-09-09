@@ -8,6 +8,15 @@
     "build": "node node_modules/typescript/bin/tsc --noEmit && node node_modules/vite/bin/vite.js build",
     "test": "vitest run --environment jsdom"
   },
+  "vitest": {
+    "test": {
+      "exclude": [
+        "e2e/**",
+        "node_modules/**",
+        "dist/**"
+      ]
+    }
+  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -17,6 +26,7 @@
     "@playwright/test": "^1.49.1",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^26.5.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",

@@ -21,8 +21,10 @@ class PanelMemberResponse(BaseModel):
     date_of_birth: datetime.date
     risk_level: str
     plan: str
+    pcp: str
     assigned_coordinator_id: int | None
     open_gap_count: int
+    last_outreach_at: datetime.datetime | None
 
 
 class MemberPanelResponse(BaseModel):

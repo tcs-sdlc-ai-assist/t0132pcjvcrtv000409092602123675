@@ -24,8 +24,10 @@ export interface PanelMember {
   date_of_birth: string;
   risk_level: string;
   plan: string;
+  pcp: string;
   assigned_coordinator_id: number | null;
   open_gap_count: number;
+  last_outreach_at: string | null;
 }
 
 export interface MemberPanel {
@@ -46,20 +48,32 @@ export interface CareGap {
   closed_at: string | null;
 }
 
+export type OutreachChannel = 'phone' | 'SMS' | 'mail' | 'member portal';
+export type OutreachOutcome = 'reached' | 'left message' | 'no answer' | 'wrong number';
+
 export interface Outreach {
   id: number;
   outreach_key: string;
-  channel: string;
-  outcome: string;
+  channel: OutreachChannel;
+  outcome: OutreachOutcome;
   occurred_at: string;
   notes: string | null;
 }
+
+export interface OutreachCreatePayload {
+  channel: OutreachChannel;
+  outcome: OutreachOutcome;
+  occurred_at: string;
+  notes: string;
+}
+
+export type GoalStatus = 'not-started' | 'in-progress' | 'met';
 
 export interface CarePlanGoal {
   id: number;
   goal_key: string;
   title: string;
-  status: 'open' | 'in_progress' | 'completed' | 'on_hold';
+  status: GoalStatus;
   target_date: string | null;
   support_goal: string | null;
   interventions: string | null;

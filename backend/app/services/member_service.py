@@ -27,6 +27,7 @@ SORT_FIELDS = {
     "risk_level": Member.risk_level,
     "plan": Member.plan,
     "date_of_birth": Member.date_of_birth,
+    "pcp": Member.pcp,
 }
 
 
@@ -88,26 +89,48 @@ async def list_members(
         filters.append(Member.assigned_coordinator_id == coordinator_id)
 
     predicate = and_(*filters) if filters else None
-    statement: Select[tuple[Member]] = select(Member)
+    latest_outreach = (
+        select(
+            Outreach.member_id.label("member_id"),
+            func.max(Outreach.occurred_at).label("last_outreach_at"),
+        )
+        .group_by(Outreach.member_id)
+        .subquery()
+    )
+    statement: Select[tuple[Member]] = select(Member).outerjoin(latest_outreach, Member.id == latest_outreach.c.member_id)
     count_statement = select(func.count()).select_from(Member)
     if predicate is not None:
         statement = statement.where(predicate)
         count_statement = count_statement.where(predicate)
 
     direction = desc if sort_order == "desc" else asc
-    ordering = direction(SORT_FIELDS.get(sort_by, Member.last_name))
-    members = (await session.scalars(statement.order_by(ordering, asc(Member.first_name)).offset(offset).limit(limit))).all()
+    sort_field = latest_outreach.c.last_outreach_at if sort_by == "last_outreach" else SORT_FIELDS.get(sort_by, Member.last_name)
+    ordering = direction(sort_field)
+    if sort_by == "last_outreach":
+        ordering = ordering.nulls_last()
+    members = (
+        await session.scalars(
+            statement.order_by(ordering, asc(Member.last_name), asc(Member.first_name), asc(Member.id)).offset(offset).limit(limit)
+        )
+    ).all()
     total = int((await session.scalar(count_statement)) or 0)
 
     member_ids = [member.id for member in members]
     gap_counts: dict[int, int] = {}
+    last_outreach_at: dict[int, datetime.datetime] = {}
     if member_ids:
-        rows = await session.execute(
+        gap_rows = await session.execute(
             select(CareGap.member_id, func.count())
             .where(CareGap.member_id.in_(member_ids), CareGap.status == "open")
             .group_by(CareGap.member_id)
         )
-        gap_counts = {member_id: int(count) for member_id, count in rows.all()}
+        gap_counts = {member_id: int(count) for member_id, count in gap_rows.all()}
+        outreach_rows = await session.execute(
+            select(Outreach.member_id, func.max(Outreach.occurred_at))
+            .where(Outreach.member_id.in_(member_ids))
+            .group_by(Outreach.member_id)
+        )
+        last_outreach_at = {member_id: occurred_at for member_id, occurred_at in outreach_rows.all() if occurred_at is not None}
 
     return MemberPanelResponse(
         items=[
@@ -119,8 +142,10 @@ async def list_members(
                 date_of_birth=member.date_of_birth,
                 risk_level=member.risk_level,
                 plan=member.plan,
+                pcp=member.pcp,
                 assigned_coordinator_id=member.assigned_coordinator_id,
                 open_gap_count=gap_counts.get(member.id, 0),
+                last_outreach_at=last_outreach_at.get(member.id),
             )
             for member in members
         ],
