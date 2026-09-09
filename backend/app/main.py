@@ -10,6 +10,7 @@ from app.core.database import AsyncSessionLocal, create_tables, dispose_engine
 from app.core.seed import seed_database
 from app.routers.auth import router as auth_router
 from app.routers.health import router as health_router
+from app.routers.members import router as members_router
 
 
 @asynccontextmanager
@@ -32,3 +33,4 @@ app = FastAPI(
 )
 app.include_router(health_router)
 app.include_router(auth_router)
+app.include_router(members_router)

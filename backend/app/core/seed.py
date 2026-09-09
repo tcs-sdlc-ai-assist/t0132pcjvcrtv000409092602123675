@@ -38,11 +38,18 @@ async def seed_database(session: AsyncSession) -> None:
                 last_name="Demo",
                 date_of_birth=datetime.date(1950 + number, (number % 12) + 1, (number % 27) + 1),
                 risk_level="high" if number % 3 == 0 else "moderate",
+                sex="female" if number % 2 == 0 else "male",
+                phone=f"555-010-{number:04d}",
+                address=f"{100 + number} Meridian Way, Harbor City, CA",
+                ssn=f"555-22-{1000 + number:04d}",
+                mbi=f"1EG4TE5MK{number:03d}",
+                plan="Meridian Advantage" if number % 2 == 0 else "Meridian Choice",
+                pcp="Dr. Avery Morgan" if number % 2 == 0 else "Dr. Jordan Lee",
                 assigned_coordinator_id=coordinator.id,
             )
             session.add(member)
             await session.flush()
-            session.add(CarePlanGoal(goal_key=f"GOAL-DEMO-{number:03d}", member_id=member.id, title="Complete preventive care plan", status="open"))
+            session.add(CarePlanGoal(goal_key=f"GOAL-DEMO-{number:03d}", member_id=member.id, title="Complete preventive care plan", status="not-started", support_goal="Maintain preventive care engagement", interventions="Coordinate annual wellness appointment"))
             session.add(CareGap(gap_key=f"GAP-DEMO-{number:03d}", member_id=member.id, category="Annual wellness visit", status="open"))
-            session.add(Outreach(outreach_key=f"OUT-DEMO-{number:03d}", member_id=member.id, coordinator_id=coordinator.id, channel="phone", outcome="pending"))
+            session.add(Outreach(outreach_key=f"OUT-DEMO-{number:03d}", member_id=member.id, coordinator_id=coordinator.id, channel="phone", outcome="no answer", notes="Initial outreach scheduled."))
     await session.commit()

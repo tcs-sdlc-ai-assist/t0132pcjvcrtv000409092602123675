@@ -42,6 +42,13 @@ class Member(Base):
     last_name: Mapped[str] = mapped_column(String(80))
     date_of_birth: Mapped[datetime.date] = mapped_column(Date)
     risk_level: Mapped[str] = mapped_column(String(24), index=True)
+    sex: Mapped[str] = mapped_column(String(24), default="unspecified")
+    phone: Mapped[str] = mapped_column(String(32), default="")
+    address: Mapped[str] = mapped_column(String(255), default="")
+    ssn: Mapped[str] = mapped_column(String(16), default="")
+    mbi: Mapped[str] = mapped_column(String(32), default="")
+    plan: Mapped[str] = mapped_column(String(120), default="")
+    pcp: Mapped[str] = mapped_column(String(120), default="")
     assigned_coordinator_id: Mapped[int | None] = mapped_column(ForeignKey("coordinators.id"), index=True)
 
 
@@ -57,6 +64,9 @@ class CarePlanGoal(Base):
     title: Mapped[str] = mapped_column(String(255))
     status: Mapped[str] = mapped_column(String(32), index=True)
     target_date: Mapped[datetime.date | None] = mapped_column(Date, nullable=True)
+    support_goal: Mapped[str | None] = mapped_column(Text, nullable=True)
+    interventions: Mapped[str | None] = mapped_column(Text, nullable=True)
+    updated_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.datetime.now(datetime.UTC), onupdate=lambda: datetime.datetime.now(datetime.UTC))
 
 
 class CareGap(Base):
@@ -71,6 +81,9 @@ class CareGap(Base):
     category: Mapped[str] = mapped_column(String(100))
     status: Mapped[str] = mapped_column(String(32), index=True)
     due_date: Mapped[datetime.date | None] = mapped_column(Date, nullable=True)
+    closed_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    closed_by: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    closed_at: Mapped[datetime.datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class Outreach(Base):
@@ -86,6 +99,7 @@ class Outreach(Base):
     channel: Mapped[str] = mapped_column(String(32))
     outcome: Mapped[str] = mapped_column(String(64))
     occurred_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.datetime.now(datetime.UTC), index=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class AuditLog(Base):

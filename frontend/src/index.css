@@ -30,7 +30,7 @@
 
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 320px; background: var(--background); }
-button, input { font: inherit; }
+button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 button:disabled { cursor: wait; opacity: .7; }
 .login-shell, .confirmation-shell { display: grid; min-height: 100vh; place-items: center; padding: 24px; }
@@ -48,4 +48,15 @@ form button:hover:not(:disabled) { background: var(--accent-hover); }
 .credential-hint { display: grid; gap: 4px; border-top: 1px solid var(--border); color: var(--muted); font-size: .86rem; line-height: 1.45; margin-top: 30px; padding-top: 20px; }
 .credential-hint strong { color: var(--foreground); }
 .secondary-button { border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--foreground); margin-top: 12px; padding: 10px 14px; }
+.workspace { width: min(100% - 32px, 1120px); margin: 0 auto; padding: 44px 0 72px; }
+.workspace-header { align-items: end; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; margin-bottom: 28px; padding-bottom: 22px; }
+.panel-controls { display: grid; gap: 16px; grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(150px, 1fr)); margin-bottom: 28px; }
+.panel-controls label, .care-actions form, .record-row label { display: grid; gap: 7px; }
+select, textarea { border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--foreground); padding: 11px 12px; width: 100%; }
+.table-wrap { border: 1px solid var(--border); overflow-x: auto; }
+table { border-collapse: collapse; min-width: 720px; width: 100%; } th, td { border-bottom: 1px solid var(--border); padding: 15px 16px; text-align: left; vertical-align: top; } th { color: var(--muted); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; } .table-sort { background: none; border: 0; color: inherit; font-weight: 600; padding: 0; } .table-meta { color: var(--muted); display: block; font-family: ui-monospace, monospace; font-size: .76rem; margin-top: 4px; } .numeric { font-variant-numeric: tabular-nums; } .table-action { display: inline-block; margin: 0; }
+.status-badge { border: 1px solid var(--border); border-radius: 999px; font-size: .75rem; padding: 3px 8px; text-transform: capitalize; } .state-message { border: 1px solid var(--border); color: var(--muted); margin: 24px 0; padding: 22px; } .state-message button, .pagination button { margin-top: 10px; } .pagination { align-items: center; display: flex; gap: 16px; justify-content: flex-end; margin-top: 20px; } .pagination button, .care-actions button { border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: #fff; padding: 9px 13px; }
+.detail-grid { display: grid; gap: 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); } .detail-section { border-top: 1px solid var(--border); padding-top: 22px; } h2 { font-size: 1.25rem; font-weight: 600; } .demographics { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); } dt { color: var(--muted); font-size: .8rem; } dd { margin: 3px 0 0; } .record-row { border-top: 1px solid var(--border); display: flex; gap: 18px; justify-content: space-between; padding: 14px 0; } .record-row p { color: var(--muted); font-size: .9rem; margin: 5px 0 0; } .care-actions { border-top: 1px solid var(--border); margin-top: 34px; padding-top: 22px; } .care-actions form { margin-top: 18px; max-width: 600px; } .care-actions button { justify-self: start; } .back-link { color: var(--accent); display: inline-block; margin-bottom: 28px; }
+.sr-only { height: 1px; margin: -1px; overflow: hidden; position: absolute; width: 1px; clip: rect(0, 0, 0, 0); }
+@media (max-width: 700px) { .workspace { width: min(100% - 24px, 1120px); padding-top: 24px; } .workspace-header, .record-row { align-items: flex-start; flex-direction: column; } .panel-controls, .detail-grid, .demographics { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }

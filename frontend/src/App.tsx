@@ -3,31 +3,22 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { AuthProvider, useAuth } from './auth/AuthContext';
 import LoginPage from './pages/LoginPage';
+import MemberPage from './pages/MemberPage';
+import PanelPage from './pages/PanelPage';
 
-function ProtectedConfirmation(): React.JSX.Element {
-  const { logout, session } = useAuth();
-  if (!session) {
-    return <Navigate to="/login" replace />;
-  }
-  return (
-    <main className="confirmation-shell">
-      <section className="confirmation-panel" aria-labelledby="confirmation-title">
-        <p className="eyebrow">Session confirmed</p>
-        <h1 id="confirmation-title">Welcome, {session.name}.</h1>
-        <p>You are signed in with the <strong>{session.role}</strong> role. Your authorized workspace will appear in the next slice.</p>
-        <button type="button" className="secondary-button" onClick={logout}>Sign out</button>
-      </section>
-    </main>
-  );
+function ProtectedRoute({ children }: { children: React.JSX.Element }): React.JSX.Element {
+  const { session } = useAuth();
+  return session ? children : <Navigate to="/login" replace />;
 }
 
 function AppRoutes(): React.JSX.Element {
   const { session } = useAuth();
   return (
     <Routes>
-      <Route path="/login" element={session ? <Navigate to="/confirmed" replace /> : <LoginPage />} />
-      <Route path="/confirmed" element={<ProtectedConfirmation />} />
-      <Route path="*" element={<Navigate to={session ? '/confirmed' : '/login'} replace />} />
+      <Route path="/login" element={session ? <Navigate to="/panel" replace /> : <LoginPage />} />
+      <Route path="/panel" element={<ProtectedRoute><PanelPage /></ProtectedRoute>} />
+      <Route path="/members/:memberId" element={<ProtectedRoute><MemberPage /></ProtectedRoute>} />
+      <Route path="*" element={<Navigate to={session ? '/panel' : '/login'} replace />} />
     </Routes>
   );
 }
