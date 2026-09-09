@@ -12,7 +12,9 @@ __pycache__/
 .env.local
 .env.*.local
 backend/data/
+backend/test-data/
 *.db
+*.sqlite3
 
 # Pipeline working files
 .engine/

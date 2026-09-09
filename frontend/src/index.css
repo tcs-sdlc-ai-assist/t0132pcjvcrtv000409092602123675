@@ -1,0 +1,51 @@
+:root {
+  color-scheme: light dark;
+  --background: #fcfcfa;
+  --surface: #ffffff;
+  --foreground: #26312e;
+  --muted: #62706a;
+  --border: #d9dfda;
+  --accent: #2d6957;
+  --accent-hover: #235444;
+  --error: #a33a32;
+  --ring: #4b8872;
+  font-family: "Aptos", "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #101512;
+    --surface: #171e1a;
+    --foreground: #f0f4f1;
+    --muted: #b4c0b8;
+    --border: #344039;
+    --accent: #86bda6;
+    --accent-hover: #a4d0ba;
+    --error: #ffb4ab;
+    --ring: #9ed3bb;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: var(--background); }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .7; }
+.login-shell, .confirmation-shell { display: grid; min-height: 100vh; place-items: center; padding: 24px; }
+.login-panel, .confirmation-panel { width: min(100%, 460px); border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 40px; }
+.eyebrow { margin: 0 0 12px; color: var(--muted); font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(2rem, 5vw, 2.65rem); font-weight: 600; letter-spacing: -.035em; line-height: 1.1; }
+.intro, .confirmation-panel p { color: var(--muted); line-height: 1.6; }
+.field { display: grid; gap: 7px; margin-top: 20px; }
+label { font-weight: 600; }
+input { width: 100%; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--foreground); padding: 11px 12px; }
+input:focus-visible, button:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+form button { width: 100%; margin-top: 24px; border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: #fff; padding: 12px 16px; font-weight: 600; transition: background-color 150ms ease-out; }
+form button:hover:not(:disabled) { background: var(--accent-hover); }
+.form-error { color: var(--error); line-height: 1.4; margin: 14px 0 0; }
+.credential-hint { display: grid; gap: 4px; border-top: 1px solid var(--border); color: var(--muted); font-size: .86rem; line-height: 1.45; margin-top: 30px; padding-top: 20px; }
+.credential-hint strong { color: var(--foreground); }
+.secondary-button { border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--foreground); margin-top: 12px; padding: 10px 14px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
