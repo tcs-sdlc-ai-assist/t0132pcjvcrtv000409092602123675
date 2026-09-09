@@ -66,6 +66,40 @@ export interface CarePlanGoal {
   updated_at: string;
 }
 
+export interface DashboardMetrics {
+  members_assigned: number;
+  open_care_gaps: number;
+  outreach_this_week: number;
+  high_risk_members: number;
+  gap_closure_rate_percent: number;
+}
+
+export interface GapSeriesPoint {
+  category: string;
+  count: number;
+}
+
+export interface DashboardActivity {
+  action: string;
+  detail: string;
+  created_at: string;
+}
+
+export interface AttentionMember {
+  member_id: number;
+  member_key: string;
+  first_name: string;
+  last_name: string;
+  overdue_gap_count: number;
+}
+
+export interface Dashboard {
+  metrics: DashboardMetrics;
+  gaps_by_type: GapSeriesPoint[];
+  recent_activity: DashboardActivity[];
+  attention_needed: AttentionMember[];
+}
+
 export interface MemberDetail {
   id: number;
   member_key: string;

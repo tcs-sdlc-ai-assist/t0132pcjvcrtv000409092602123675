@@ -50,6 +50,14 @@ async def seed_database(session: AsyncSession) -> None:
             session.add(member)
             await session.flush()
             session.add(CarePlanGoal(goal_key=f"GOAL-DEMO-{number:03d}", member_id=member.id, title="Complete preventive care plan", status="not-started", support_goal="Maintain preventive care engagement", interventions="Coordinate annual wellness appointment"))
-            session.add(CareGap(gap_key=f"GAP-DEMO-{number:03d}", member_id=member.id, category="Annual wellness visit", status="open"))
+            session.add(
+                CareGap(
+                    gap_key=f"GAP-DEMO-{number:03d}",
+                    member_id=member.id,
+                    category="Annual wellness visit",
+                    status="open",
+                    due_date=datetime.date.today() - datetime.timedelta(days=number) if number % 3 == 0 else datetime.date.today() + datetime.timedelta(days=30),
+                )
+            )
             session.add(Outreach(outreach_key=f"OUT-DEMO-{number:03d}", member_id=member.id, coordinator_id=coordinator.id, channel="phone", outcome="no answer", notes="Initial outreach scheduled."))
     await session.commit()

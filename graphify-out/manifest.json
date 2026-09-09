@@ -1,0 +1,132 @@
+{
+  "backend/app/__init__.py": {
+    "mtime": 1788920184.310574,
+    "ast_hash": "19a481d75441b358720b6485232166b6",
+    "semantic_hash": "19a481d75441b358720b6485232166b6"
+  },
+  "backend/app/core/__init__.py": {
+    "mtime": 1788920184.3201792,
+    "ast_hash": "2a3c28139f8f3b10e21efb99bc33901a",
+    "semantic_hash": "2a3c28139f8f3b10e21efb99bc33901a"
+  },
+  "backend/app/core/config.py": {
+    "mtime": 1788920184.1889484,
+    "ast_hash": "00c9885aaa1d558b53c0e6bfc9714a07",
+    "semantic_hash": "00c9885aaa1d558b53c0e6bfc9714a07"
+  },
+  "backend/app/core/database.py": {
+    "mtime": 1788920265.5555952,
+    "ast_hash": "6799a7e2f2e8b446e0529b067dc82570",
+    "semantic_hash": "6799a7e2f2e8b446e0529b067dc82570"
+  },
+  "backend/app/core/security.py": {
+    "mtime": 1788920184.2198052,
+    "ast_hash": "f3da6192acadca9a4fdb899591dd98de",
+    "semantic_hash": "f3da6192acadca9a4fdb899591dd98de"
+  },
+  "backend/app/core/seed.py": {
+    "mtime": 1788920184.2890072,
+    "ast_hash": "75226b9f42e6c918268cacdc376b0315",
+    "semantic_hash": "75226b9f42e6c918268cacdc376b0315"
+  },
+  "backend/app/main.py": {
+    "mtime": 1788920184.2999437,
+    "ast_hash": "bf668059f54af1d8cca62b436110a287",
+    "semantic_hash": "bf668059f54af1d8cca62b436110a287"
+  },
+  "backend/app/models/__init__.py": {
+    "mtime": 1788920184.3287652,
+    "ast_hash": "c4b884736ae2d3a25e7fa636ed769b0a",
+    "semantic_hash": "c4b884736ae2d3a25e7fa636ed769b0a"
+  },
+  "backend/app/models/entities.py": {
+    "mtime": 1788920446.1823435,
+    "ast_hash": "95c27c4fd53eb805532d65a14e892d6c",
+    "semantic_hash": "95c27c4fd53eb805532d65a14e892d6c"
+  },
+  "backend/app/routers/__init__.py": {
+    "mtime": 1788920184.3602066,
+    "ast_hash": "7cf5ff169564629aae778f368cb44e77",
+    "semantic_hash": "7cf5ff169564629aae778f368cb44e77"
+  },
+  "backend/app/routers/auth.py": {
+    "mtime": 1788920184.264745,
+    "ast_hash": "5172212ca6143d8b38e4e7cef57a395d",
+    "semantic_hash": "5172212ca6143d8b38e4e7cef57a395d"
+  },
+  "backend/app/routers/health.py": {
+    "mtime": 1788920184.278742,
+    "ast_hash": "9049fd7a1ce93854e6b79d8ae3622af0",
+    "semantic_hash": "9049fd7a1ce93854e6b79d8ae3622af0"
+  },
+  "backend/app/schemas/__init__.py": {
+    "mtime": 1788920184.3394918,
+    "ast_hash": "5335602d7e6026be5293d655d6df98be",
+    "semantic_hash": "5335602d7e6026be5293d655d6df98be"
+  },
+  "backend/app/schemas/auth.py": {
+    "mtime": 1788920184.2415717,
+    "ast_hash": "081d91bd8d99605075be64224f7a4549",
+    "semantic_hash": "081d91bd8d99605075be64224f7a4549"
+  },
+  "backend/app/services/__init__.py": {
+    "mtime": 1788920184.3494647,
+    "ast_hash": "df40ae0abf07d1659afd93efe98e00fb",
+    "semantic_hash": "df40ae0abf07d1659afd93efe98e00fb"
+  },
+  "backend/app/services/auth_service.py": {
+    "mtime": 1788920184.2521596,
+    "ast_hash": "593ab46938743672af7040740bb4edc7",
+    "semantic_hash": "593ab46938743672af7040740bb4edc7"
+  },
+  "backend/tests/test_auth_api.py": {
+    "mtime": 1788920429.8739896,
+    "ast_hash": "2275ab3b17ae439e635a41392faf165a",
+    "semantic_hash": "2275ab3b17ae439e635a41392faf165a"
+  },
+  "frontend/e2e/auth.spec.ts": {
+    "mtime": 1788920229.884448,
+    "ast_hash": "7bcc8947561eea3e730c196121738174",
+    "semantic_hash": "7bcc8947561eea3e730c196121738174"
+  },
+  "frontend/package.json": {
+    "mtime": 1788920229.7751234,
+    "ast_hash": "f79024a6412accc67a2bcd2413c5e4c2",
+    "semantic_hash": "f79024a6412accc67a2bcd2413c5e4c2"
+  },
+  "frontend/src/App.tsx": {
+    "mtime": 1788920545.4870396,
+    "ast_hash": "aeb424513f62f5113c8993fca6a718a2",
+    "semantic_hash": "aeb424513f62f5113c8993fca6a718a2"
+  },
+  "frontend/src/api/client.ts": {
+    "mtime": 1788920229.81232,
+    "ast_hash": "75f6f08883da8d4f5633df971d1219bf",
+    "semantic_hash": "75f6f08883da8d4f5633df971d1219bf"
+  },
+  "frontend/src/auth/AuthContext.tsx": {
+    "mtime": 1788920539.9288535,
+    "ast_hash": "cf986f7ff0300770d314fa1035fcfdb4",
+    "semantic_hash": "cf986f7ff0300770d314fa1035fcfdb4"
+  },
+  "frontend/src/main.tsx": {
+    "mtime": 1788920229.853942,
+    "ast_hash": "1afc27545f33e9022c6d62e09fd50da5",
+    "semantic_hash": "1afc27545f33e9022c6d62e09fd50da5"
+  },
+  "frontend/src/pages/LoginPage.test.tsx": {
+    "mtime": 1788920521.9818041,
+    "ast_hash": "d4daeeffe9041f58c91c4d610ebbf700",
+    "semantic_hash": "d4daeeffe9041f58c91c4d610ebbf700"
+  },
+  "frontend/src/pages/LoginPage.tsx": {
+    "mtime": 1788920539.942751,
+    "ast_hash": "6337d95c17a467e795b6b7fb10691444",
+    "semantic_hash": "6337d95c17a467e795b6b7fb10691444"
+  },
+  "frontend/src/types.ts": {
+    "mtime": 1788920229.7980785,
+    "ast_hash": "9c5c139c38358bb4db1cf9beb524923f",
+    "semantic_hash": "9c5c139c38358bb4db1cf9beb524923f"
+  }
+}

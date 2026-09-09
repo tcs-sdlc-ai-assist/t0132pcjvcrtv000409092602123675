@@ -1,0 +1,340 @@
+{
+  "communities": {
+    "0": [
+      "backend_app_core_config",
+      "backend_app_core_config_get_settings",
+      "backend_app_core_config_rationale_1",
+      "backend_app_core_config_rationale_21",
+      "backend_app_core_config_rationale_9",
+      "backend_app_core_config_settings",
+      "backend_app_core_database",
+      "backend_app_core_database_create_database_parent",
+      "backend_app_core_database_create_tables",
+      "backend_app_core_database_dispose_engine",
+      "backend_app_core_database_rationale_1",
+      "backend_app_core_database_rationale_14",
+      "backend_app_core_database_rationale_44",
+      "backend_app_core_database_rationale_54",
+      "backend_app_core_security",
+      "backend_app_core_security_rationale_1",
+      "backend_app_main",
+      "backend_app_main_lifespan",
+      "backend_app_main_rationale_1",
+      "backend_app_main_rationale_17",
+      "backend_app_routers_auth",
+      "backend_app_routers_auth_rationale_1",
+      "backend_app_routers_health",
+      "backend_app_routers_health_rationale_1",
+      "backend_tests_test_auth_api",
+      "backend_tests_test_auth_api_initialized_application",
+      "backend_tests_test_auth_api_rationale_1",
+      "backend_tests_test_auth_api_rationale_27",
+      "basesettings",
+      "fastapi",
+      "fixture"
+    ],
+    "1": [
+      "backend_app_core_database_base",
+      "backend_app_core_database_rationale_33",
+      "backend_app_core_security_hash_password",
+      "backend_app_core_security_rationale_23",
+      "backend_app_core_seed",
+      "backend_app_core_seed_py_asyncsession",
+      "backend_app_core_seed_rationale_1",
+      "backend_app_core_seed_rationale_20",
+      "backend_app_core_seed_seed_database",
+      "backend_app_models_entities",
+      "backend_app_models_entities_auditlog",
+      "backend_app_models_entities_caregap",
+      "backend_app_models_entities_careplangoal",
+      "backend_app_models_entities_coordinator",
+      "backend_app_models_entities_member",
+      "backend_app_models_entities_new_business_key",
+      "backend_app_models_entities_outreach",
+      "backend_app_models_entities_rationale_1",
+      "backend_app_models_entities_rationale_13",
+      "backend_app_models_entities_rationale_19",
+      "backend_app_models_entities_rationale_34",
+      "backend_app_models_entities_rationale_49",
+      "backend_app_models_entities_rationale_63",
+      "backend_app_models_entities_rationale_77",
+      "backend_app_models_entities_rationale_92",
+      "declarativebase"
+    ],
+    "2": [
+      "frontend_src_api_client",
+      "frontend_src_api_client_apierror",
+      "frontend_src_api_client_apierror_constructor",
+      "frontend_src_api_client_loginrequest",
+      "frontend_src_app",
+      "frontend_src_app_app",
+      "frontend_src_app_approutes",
+      "frontend_src_app_protectedconfirmation",
+      "frontend_src_auth_authcontext",
+      "frontend_src_auth_authcontext_authcontext",
+      "frontend_src_auth_authcontext_authprovider",
+      "frontend_src_auth_authcontext_readstoredsession",
+      "frontend_src_auth_authcontext_useauth",
+      "frontend_src_main",
+      "frontend_src_pages_loginpage",
+      "frontend_src_pages_loginpage_loginpage",
+      "frontend_src_pages_loginpage_loginpageprops",
+      "frontend_src_pages_loginpage_test",
+      "frontend_src_pages_loginpage_test_renderloginpage",
+      "frontend_src_types",
+      "frontend_src_types_authcontextvalue",
+      "frontend_src_types_authsession",
+      "frontend_src_types_logincredentials"
+    ],
+    "3": [
+      "backend_app_core_security_create_access_token",
+      "backend_app_core_security_rationale_29",
+      "backend_app_core_security_rationale_35",
+      "backend_app_core_security_verify_password",
+      "backend_app_routers_auth_login",
+      "backend_app_routers_auth_py_asyncsession",
+      "backend_app_routers_auth_py_depends",
+      "backend_app_routers_auth_rationale_20",
+      "backend_app_schemas_auth",
+      "backend_app_schemas_auth_loginrequest",
+      "backend_app_schemas_auth_loginresponse",
+      "backend_app_schemas_auth_rationale_1",
+      "backend_app_schemas_auth_rationale_14",
+      "backend_app_schemas_auth_rationale_7",
+      "backend_app_services_auth_service",
+      "backend_app_services_auth_service_authenticate_coordinator",
+      "backend_app_services_auth_service_py_asyncsession",
+      "backend_app_services_auth_service_rationale_1",
+      "backend_app_services_auth_service_rationale_14",
+      "basemodel",
+      "post"
+    ],
+    "4": [
+      "frontend_package_devdependencies",
+      "frontend_package_devdependencies_jsdom",
+      "frontend_package_devdependencies_playwright_test",
+      "frontend_package_devdependencies_testing_library_react",
+      "frontend_package_devdependencies_testing_library_user_event",
+      "frontend_package_devdependencies_types_react",
+      "frontend_package_devdependencies_types_react_dom",
+      "frontend_package_devdependencies_typescript",
+      "frontend_package_devdependencies_vite",
+      "frontend_package_devdependencies_vitejs_plugin_react",
+      "frontend_package_devdependencies_vitest",
+      "jsdom",
+      "playwright_test",
+      "testing_library_react",
+      "testing_library_user_event",
+      "types_react",
+      "types_react_dom",
+      "typescript",
+      "vite",
+      "vitejs_plugin_react",
+      "vitest"
+    ],
+    "5": [
+      "frontend_package",
+      "frontend_package_dependencies",
+      "frontend_package_dependencies_react",
+      "frontend_package_dependencies_react_dom",
+      "frontend_package_dependencies_react_router_dom",
+      "frontend_package_name",
+      "frontend_package_private",
+      "frontend_package_scripts",
+      "frontend_package_scripts_build",
+      "frontend_package_scripts_dev",
+      "frontend_package_scripts_test",
+      "frontend_package_type",
+      "frontend_package_version",
+      "react",
+      "react_dom",
+      "react_router_dom"
+    ],
+    "6": [
+      "asyncio",
+      "backend_tests_test_auth_api_rationale_105",
+      "backend_tests_test_auth_api_rationale_42",
+      "backend_tests_test_auth_api_rationale_54",
+      "backend_tests_test_auth_api_rationale_73",
+      "backend_tests_test_auth_api_rationale_88",
+      "backend_tests_test_auth_api_test_health_reports_process_liveness",
+      "backend_tests_test_auth_api_test_login_rejects_bad_credentials",
+      "backend_tests_test_auth_api_test_login_returns_token_role_and_name_for_seeded_coordinator",
+      "backend_tests_test_auth_api_test_login_token_has_expected_role_payload",
+      "backend_tests_test_auth_api_test_seed_is_idempotent_and_creates_twenty_members"
+    ],
+    "7": [
+      "backend_app_core_database_get_session",
+      "backend_app_core_database_py_asyncsession",
+      "backend_app_core_database_rationale_37",
+      "backend_app_core_security_get_current_coordinator",
+      "backend_app_core_security_py_asyncsession",
+      "backend_app_core_security_py_depends",
+      "backend_app_core_security_rationale_47",
+      "bearer_scheme",
+      "httpauthorizationcredentials"
+    ],
+    "8": [
+      "backend_app_routers_health_health",
+      "backend_app_routers_health_rationale_10",
+      "get"
+    ],
+    "9": [
+      "backend_app_core_init",
+      "backend_app_core_init_rationale_1"
+    ],
+    "10": [
+      "backend_app_init",
+      "backend_app_init_rationale_1"
+    ],
+    "11": [
+      "backend_app_models_init",
+      "backend_app_models_init_rationale_1"
+    ],
+    "12": [
+      "backend_app_schemas_init",
+      "backend_app_schemas_init_rationale_1"
+    ],
+    "13": [
+      "backend_app_services_init",
+      "backend_app_services_init_rationale_1"
+    ],
+    "14": [
+      "backend_app_routers_init"
+    ],
+    "15": [
+      "frontend_e2e_auth_spec"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10967741935483871,
+    "1": 0.12923076923076923,
+    "2": 0.16996047430830039,
+    "3": 0.12857142857142856,
+    "4": 0.09523809523809523,
+    "5": 0.125,
+    "6": 0.18181818181818182,
+    "7": 0.2222222222222222,
+    "8": 0.6666666666666666,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0
+  },
+  "gods": [
+    {
+      "id": "backend_app_core_seed_seed_database",
+      "label": "seed_database()",
+      "degree": 13
+    },
+    {
+      "id": "backend_app_core_config_get_settings",
+      "label": "get_settings()",
+      "degree": 10
+    },
+    {
+      "id": "backend_app_core_database_base",
+      "label": "Base",
+      "degree": 10
+    },
+    {
+      "id": "backend_app_core_security_get_current_coordinator",
+      "label": "get_current_coordinator()",
+      "degree": 9
+    },
+    {
+      "id": "backend_app_models_entities_coordinator",
+      "label": "Coordinator",
+      "degree": 9
+    },
+    {
+      "id": "backend_app_routers_auth_login",
+      "label": "login()",
+      "degree": 9
+    },
+    {
+      "id": "backend_app_services_auth_service_authenticate_coordinator",
+      "label": "authenticate_coordinator()",
+      "degree": 8
+    },
+    {
+      "id": "backend_app_core_database_get_session",
+      "label": "get_session()",
+      "degree": 7
+    },
+    {
+      "id": "backend_app_main_lifespan",
+      "label": "lifespan()",
+      "degree": 7
+    },
+    {
+      "id": "backend_app_models_entities_member",
+      "label": "Member",
+      "degree": 7
+    }
+  ],
+  "surprises": [
+    {
+      "source": "create_access_token()",
+      "target": "get_settings()",
+      "source_files": [
+        "backend/app/core/security.py",
+        "backend/app/core/config.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "get_current_coordinator()",
+      "target": "get_settings()",
+      "source_files": [
+        "backend/app/core/security.py",
+        "backend/app/core/config.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "AuditLog",
+      "target": "Base",
+      "source_files": [
+        "backend/app/models/entities.py",
+        "backend/app/core/database.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "CareGap",
+      "target": "Base",
+      "source_files": [
+        "backend/app/models/entities.py",
+        "backend/app/core/database.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "CarePlanGoal",
+      "target": "Base",
+      "source_files": [
+        "backend/app/models/entities.py",
+        "backend/app/core/database.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
